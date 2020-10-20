@@ -1,0 +1,3 @@
+include ':proto'
+include ':app'
+rootProject.name = "WireTest"

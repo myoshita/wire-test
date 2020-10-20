@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto;
+
+import "period.proto";
+
+message Dinosaur {
+  // Common name of this dinosaur, like "Stegosaurus".
+  string name = 1;
+
+  // URLs with images of this dinosaur.
+  repeated string picture_urls = 2;
+
+  Period period = 5;
+}

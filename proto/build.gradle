@@ -1,0 +1,37 @@
+apply plugin: 'application'
+apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'com.squareup.wire'
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    api "com.squareup.wire:wire-runtime:3.3.0"
+}
+
+wire {
+    sourcePath {
+        srcDir 'src/main/proto'
+    }
+
+    kotlin {
+        out "${buildDir}/proto"
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs += "${buildDir}/proto"
+        }
+    }
+}
